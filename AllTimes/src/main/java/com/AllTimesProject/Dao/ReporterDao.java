@@ -15,7 +15,4 @@ public interface ReporterDao {
 	int ReporterModify(ReporterDto reporterInfo);
 
 	ReporterDto selectReporter(String rid);
-
-	ReporterDto selectReporterModify(String test_Rid);
-//	
 }

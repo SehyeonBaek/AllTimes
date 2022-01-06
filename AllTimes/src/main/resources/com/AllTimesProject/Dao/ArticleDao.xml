@@ -16,4 +16,8 @@
 		VALUES( #{ar_no}, #{ar_title}, #{ar_detail}, #{ar_name}, sysdate, #{ar_genre},0,0,0,#{ar_filename})	
 	</insert>
 
+	<select id="selectReporterModify" resultType="com.AllTimesProject.Dto.ArticleDto">
+		SELECT * FROM ARTICLE
+		WHERE AR_NAME = #{test_Rid}
+	</select>
 </mapper>

@@ -109,51 +109,39 @@
 
 
 			<table>
-				<form action="ReporterModify" method="post"
-					enctype="multipart/form-data">
-					<div style="margin: 40px">
-						<tr>
-							<th colspan="2">(${ReporterModify.ar_no})번 글 상세보기</th>
-						</tr>
-						<tr>
-							<th>글제목</th>
-							<td>${ReporterModify.ar_title}</td>
-						</tr>
-						<tr>
-							<th>글내용</th>
-							<td>${ReporterModify.ar_detail}</td>
-						</tr>
-						<tr>
-							<th>기자</th>
-							<td>${ReporterModify.ar_name }</td>
-						</tr>
-						<tr>
-							<th>작성일</th>
-							<td>${ReporterModify.sysdate }</td>
-						</tr>
-						<tr>
-							<th>분류</th>
-							<td>${ReporterModify.ar_genre }</td>
-						</tr>
-						<tr>
-							<th>분류</th>
-							<td>${ReporterModify.AR_HITS }</td>
-						</tr>
-						<tr>
-							<th>좋아요</th>
-							<td>${ReporterModify.AR_THUMBSUP }</td>
-						</tr>
-						<tr>
-							<th>싫어요</th>
-							<td>${ReporterModify.AR_THUMBSDOWN }</td>
-						</tr>
-						<tr>
-							<th>첨부파일</th>
-							<td>${ReporterModify.AR_FILENAME }</td>
-						</tr>
-				</form>
+				<tr>
+					<form action="ReporterModify" method="post"
+						enctype="multipart/form-data"></form>
+			<tr>
+				<th>기사 번호</th>
+				<th>기사 제목</th>
+				<th>작성 기자</th>
+				<th>작성일</th>
+				<th>기사 분류 </th>
+				<th>조회수</th>
+				<th>좋아요</th>
+				<th>싫어요</th>
+				<th>첨부파일</th>	
+			</tr>
+		
+				<c:forEach items="${Article}" var="Article">
+			<tr>
+				<td>${Article.ar_no }</td>
+				<td>${Article.ar_title }</td>
+				<td>${Article.ar_name }</td>
+				<td>${Article.ar_date }</td>
+				
+				<td>${Article.ar_genre }</td>
+				<td>${Article.ar_hits }</td>
+				<td>${Article.ar_thumbsup }</td>
+				<td>${Article.ar_thumbsdown }</td>
+				<td>${Article.ar_filename }</td>
+				
+			</tr>
+			</c:forEach>
 
 
+				
 			</table>
 		</div>
 	</nav>
@@ -249,6 +237,6 @@
 		src="${pageContext.request.contextPath}/resources/js/core.js?val=1"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/js/lightbox-plus-jquery.min.js"></script>
-	
+
 </body>
 </html>

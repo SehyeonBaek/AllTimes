@@ -17,11 +17,6 @@
 		RNAME=#{rname}, RMAIL=#{rmail}
 		WHERE RID=#{rid}
 	</update>
-	
-	<select id="selectReporterModify" resultType="com.AllTimesProject.Dto.ReporterDto">
-		SELECT * FROM REPORTER
-		WHERE RID = #{RID}
-	</select>
 
 	
 	<!--  <select id="selectReporter" resultType="String">

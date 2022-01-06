@@ -42,9 +42,9 @@ public class ReporterController {
 	}
 
 	@RequestMapping(value = "/ReporterModifyForm")
-	public ModelAndView ReporterModifyForm (){
+	public ModelAndView ReporterModifyForm (String test_Rid){
 		System.out.println("/reporterModifyForm 내기사 관리 페이지 이동");
-		mav = rerSvc.reporterModifyForm();
+		mav = rerSvc.reporterModifyForm(test_Rid);
 		return mav;
 	}
 	

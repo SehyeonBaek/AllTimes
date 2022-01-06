@@ -2,6 +2,7 @@ package com.AllTimesProject.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -17,6 +18,7 @@ import com.AllTimesProject.Dto.ArticleDto;
 import com.AllTimesProject.Dto.MemberDto;
 import com.AllTimesProject.Dto.ReporterDto;
 
+
 @Service
 public class ReporterService {
 	@Autowired
@@ -24,9 +26,12 @@ public class ReporterService {
 
 	@Autowired
 	private ArticleDao Art;
+	
+	@Autowired
 	private ReporterDao Reo;
+	
 	private ModelAndView mav;
-	private String savePath = "C:\\Users\\mm\\Documents\\workspace-sts-3.9.18.RELEASE\\AllTimes\\src\\main\\webapp\\resources\\upLoadeFile\\ReporterProfile";
+	private String savePath = "C:\\Users\\mm\\git\\AllTimes\\AllTimes\\src\\main\\webapp\\resources\\upLoadeFile\\ReporterProfile";
 
 	public ModelAndView reporterWrite(ArticleDto article,RedirectAttributes ra)
 			throws IllegalStateException, IOException {
@@ -50,7 +55,7 @@ public class ReporterService {
 			//중복방지를 위한 임의의 파일명
 			AR_FILENAME = uuid.toString()+"_"+AR_FILENAME;
 			//임의의 파일명 + 파일명을 합쳐서 파일명 재정의
-			System.out.println("첨부파일명2 : " + AR_FILENAME);
+			System.out.println("첨부파일명 : " + AR_FILENAME);
 			AR_FILE.transferTo( new File(savePath, AR_FILENAME) );
 			//아무 내용도 없이 이름만있는(AR_FILENAME)에다가 웹에서 올린파일을 덮어쓰기
 		}
@@ -69,7 +74,8 @@ public class ReporterService {
 		// 기자 이름
 				
 		// addObject : key와 value를 담아 보낼 수 있는 메서드
-		mav.setViewName("ReporterModifyForm");
+		
+		mav.setViewName("redirect:/ReporterModifyForm");
 		return mav;
 	
 		
@@ -88,15 +94,15 @@ public class ReporterService {
 	
 	
 	
-	public ModelAndView reporterModifyForm() {
+	public ModelAndView reporterModifyForm(String test_Rid) {
 		System.out.println("ReporterService.ReporterModifyForm()");
 		mav = new ModelAndView();	
-			
-		String test_Rid = "TEST2";
-		ReporterDto ReporterModify = Reo.selectReporterModify(test_Rid);
-		mav.addObject("ReporterModify",ReporterModify);
+		test_Rid = "TEST2";
+		ArrayList<ArticleDto> Article = Art.selectReporterModify(test_Rid);
+		
+		mav.addObject("Article",Article);
 		//MemberModify에서 value값
-//		mav.setViewName("ReporterModifyForm");
+		mav.setViewName("ReporterModifyForm");
 		return mav;
 	}
 
@@ -105,7 +111,7 @@ public class ReporterService {
 		System.out.println("/ReporterService.ReporterModifyForm ()");
 		mav = new ModelAndView();
 		
-//		mav.setViewName("ReporterModifyForm");
+		mav.setViewName("ReporterModifyForm");
 		return mav;
 	}
 
