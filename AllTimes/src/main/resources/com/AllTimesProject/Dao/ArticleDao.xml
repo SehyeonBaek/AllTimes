@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.AllTimesProject.Dao.ArticleDao">
+
+
+	<select id = "getMaxNo" resultType="int">
+		SELECT NVL(MAX(AR_NO),0)
+		FROM ARTICLE
+  		
+	</select>
+	<insert id="insertArticle">
+		INSERT INTO ARTICLE(AR_NO, AR_TITLE, AR_DETAIL, AR_NAME, AR_DATE, AR_GENRE, AR_HITS, AR_THUMBSUP, AR_THUMBSDOWN, AR_FILENAME)
+		VALUES( #{ar_no}, #{ar_title}, #{ar_detail}, #{ar_name}, sysdate, #{ar_genre},0,0,0,#{ar_filename})	
+	</insert>
+
+</mapper>

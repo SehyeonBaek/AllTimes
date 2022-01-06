@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.AllTimesProject.Dao.MemberDao">
+  
+  	<select id = "selectMemberView" resultType="com.AllTimesProject.Dto.MemberDto">
+  		SELECT * FROM MEMBER
+  		WHERE MID = #{mid}
+  	</select>
+  
+  	<update id = "updateMember">
+  		UPDATE MEMBER
+  		SET MPW = #{mpw}, MNAME = #{mname}, MMAIL = #{mmail}, MAGE = #{mage}, MCONTACT = #{mcontact}
+  		WHERE MID = #{mid}
+  	</update>
+  
+  </mapper>

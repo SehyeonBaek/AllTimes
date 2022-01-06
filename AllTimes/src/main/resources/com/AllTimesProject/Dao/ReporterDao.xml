@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.AllTimesProject.Dao.ReporterDao">
+
+	<select id="oldFileSelect" resultType="String">
+		SELECT RPROFILE FROM
+		REPORTER WHERE RID=#{rid}
+	</select>
+
+
+	<update id="ReporterModify">
+		UPDATE REPORTER
+		SET RID=#{rid}, RPW=#{rpw},
+		RNAME=#{rname}, RMAIL=#{rmail}
+		WHERE RID=#{rid}
+	</update>
+	
+	<select id="selectReporterModify" resultType="com.AllTimesProject.Dto.ReporterDto">
+		SELECT * FROM REPORTER
+		WHERE RID = #{RID}
+	</select>
+
+	
+	<!--  <select id="selectReporter" resultType="String">
+		SELECT RID
+		FROM REPORTER 
+		WHERE RSTATE=1
+	</select>
+	-->
+</mapper>
