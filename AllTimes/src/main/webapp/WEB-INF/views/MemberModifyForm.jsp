@@ -110,7 +110,7 @@
 					<c:choose>
 						<c:when test="${memberModify.mstate == 1}">
 							<li class="nav-item"><a class="nav-link"
-								href="ReporterModifyForm">내 기사 관리</a></li>
+								href="ArticleModifyForm">내 기사 관리</a></li>
 						</c:when>
 					</c:choose>
 

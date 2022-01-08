@@ -21,7 +21,7 @@ public class ReporterController {
 	
 	@Autowired
 	private ReporterService rerSvc;
-	private ArticleDao Art;
+
 	private ModelAndView mav;
 	
 	@RequestMapping(value = "/ReporterWriteForm")
@@ -38,20 +38,6 @@ public class ReporterController {
 		System.out.println("/ReporterWrite 글작성");
 		System.out.println("입력한 기사 정보: " + article);		
 		mav = rerSvc.reporterWrite(article,ra);
-		return mav;
-	}
-
-	@RequestMapping(value = "/ReporterModifyForm")
-	public ModelAndView ReporterModifyForm (String test_Rid){
-		System.out.println("/reporterModifyForm 내기사 관리 페이지 이동");
-		mav = rerSvc.reporterModifyForm(test_Rid);
-		return mav;
-	}
-	
-	@RequestMapping(value ="/ReporterModify")
-	public ModelAndView ReporterModify (ReporterDto rid, RedirectAttributes ra) throws IllegalStateException, IOException {
-		System.out.println("/ReporterModify 내 기사 관리");
-		mav = rerSvc.reporterModify(rid,ra);
 		return mav;
 	}
 	

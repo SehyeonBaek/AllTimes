@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -27,12 +29,11 @@ public class ReporterService {
 	@Autowired
 	private ArticleDao Art;
 	
-	@Autowired
 	private ReporterDao Reo;
 	
 	private ModelAndView mav;
+	
 	private String savePath = "C:\\Users\\mm\\git\\AllTimes\\AllTimes\\src\\main\\webapp\\resources\\upLoadeFile\\ReporterProfile";
-
 	public ModelAndView reporterWrite(ArticleDto article,RedirectAttributes ra)
 			throws IllegalStateException, IOException {
 	
@@ -75,13 +76,12 @@ public class ReporterService {
 				
 		// addObject : key와 value를 담아 보낼 수 있는 메서드
 		
-		mav.setViewName("redirect:/ReporterModifyForm");
+		mav.setViewName("redirect:/ArticleModifyForm");
 		return mav;
 	
 		
 	}
 	
-		
 		
 	public ModelAndView reporterWriteForm() {
 		System.out.println("/ReporterService.ReporterWriteForm ()");
@@ -90,30 +90,6 @@ public class ReporterService {
 		return mav;
 	}
 	
-	
-	
-	
-	
-	public ModelAndView reporterModifyForm(String test_Rid) {
-		System.out.println("ReporterService.ReporterModifyForm()");
-		mav = new ModelAndView();	
-		test_Rid = "TEST2";
-		ArrayList<ArticleDto> Article = Art.selectReporterModify(test_Rid);
-		
-		mav.addObject("Article",Article);
-		//MemberModify에서 value값
-		mav.setViewName("ReporterModifyForm");
-		return mav;
-	}
-
-	
-	public ModelAndView reporterModify(ReporterDto rid, RedirectAttributes ra) throws IllegalStateException, IOException {
-		System.out.println("/ReporterService.ReporterModifyForm ()");
-		mav = new ModelAndView();
-		
-		mav.setViewName("ReporterModifyForm");
-		return mav;
-	}
 
 
 

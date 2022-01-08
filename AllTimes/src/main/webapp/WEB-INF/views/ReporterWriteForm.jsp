@@ -103,7 +103,7 @@
 					<li class="nav-item"><a class="nav-link"
 						href="ReporterWriteForm">기사 작성</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="ReporterModifyForm">내 기사 관리</a></li>
+						href="ArticleModifyForm">내 기사 관리</a></li>
 				</ul>
 			</div>
 			</form>
