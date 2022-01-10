@@ -13,5 +13,5 @@ public interface ArticleDao {
 	int getMaxNo();
 	int insertArticle(ArticleDto article);
 	ArrayList<ArticleDto> selectArticleModify(String test_Rid);
-
+	ArticleDto selectArticleView(int ar_no);
 }

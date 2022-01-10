@@ -20,4 +20,10 @@
 		SELECT * FROM ARTICLE
 		WHERE AR_NAME = #{test_Rid}
 	</select>
+	
+	<select id="selectArticleView" resultType="com.AllTimesProject.Dto.ArticleDto">
+		SELECT * FROM ARTICLE
+		WHERE AR_NO = #{ar_no}
+	</select>
+	
 </mapper>
